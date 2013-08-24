@@ -1,0 +1,16 @@
+h1. Capsule Share
+
+h2. 初期設定
+
+h3. git clone
+
+<pre>
+git clone git@github.com:arakawa-vyw/capsule-share-server.git
+cd capsule-share-server
+</pre>
+
+h3. bundle
+
+<pre>
+bundle install --path vendor/bundle
+</pre>
