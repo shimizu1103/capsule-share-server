@@ -16,7 +16,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -43,3 +43,24 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'devise'
+
+gem 'settingslogic'
+
+gem 'factory_girl_rails'
+
+group :development, :test do
+  gem 'annotate'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  # gem 'pry-debugger'
+  gem 'pry-byebug'
+
+  gem 'rspec-rails'
+end
+
