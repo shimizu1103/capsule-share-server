@@ -1,9 +1,13 @@
 module ApiCommon
-  def not_exists
+  def result_not_exists
     { result: 1 }
   end
 
-  def failed(message = nil)
+  def result_already_exists
+    { result: 3 }
+  end
+
+  def result_failed(message = nil)
     json = { result: 9 }
     if message
       json.merge! message: message

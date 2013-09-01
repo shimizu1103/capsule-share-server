@@ -9,14 +9,14 @@ class Api::Users::SessionsController < Devise::SessionsController
     password = params[:password]
 
     if email.nil? || password.nil?
-      render json: failed("invalid parameters")
+      render json: result_failed("invalid parameters")
       return
     end
 
     @user = User.find_for_database_authentication(email: email.downcase)
 
     if @user.nil? || !@user.valid_password?(password)
-      render json: not_exists
+      render json: result_not_exists
       return
     end
 
