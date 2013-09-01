@@ -1,6 +1,6 @@
 CapsuleShare::Application.routes.draw do
 
-  post "api/users/sign_in" => "users#sign_in"
+#  post "api/users/sign_in" => "users#sign_in"
 
   root "home#index"
 
@@ -10,7 +10,8 @@ CapsuleShare::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     devise_scope :user do
-      post "users/sign_in" => "users/sessions#create"
+#      post "users/sign_in" => "users/sessions#create"
+      post "users/sign_in" => "users#sign_in"
     end
   end
 end
