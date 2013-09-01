@@ -16,7 +16,7 @@ class Api::Users::SessionsController < Devise::SessionsController
     @user = User.find_for_database_authentication(email: email.downcase)
 
     if @user.nil? || !@user.valid_password?(password)
-      render json: failed("unauthorized")
+      render json: not_exists
       return
     end
 
