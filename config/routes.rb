@@ -9,5 +9,6 @@ CapsuleShare::Application.routes.draw do
     devise_scope :user do
       post "users/sign_in" => "users/sessions#create"
     end
+    post "friends/create", to: "friends#create"
   end
 end
