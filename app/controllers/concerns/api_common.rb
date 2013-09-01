@@ -12,5 +12,6 @@ module ApiCommon
     if message
       json.merge! message: message
     end
+    json
   end
 end

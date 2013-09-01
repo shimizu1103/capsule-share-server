@@ -9,7 +9,7 @@ class Api::Users::SessionsController < Devise::SessionsController
     password = params[:password]
 
     if email.nil? || password.nil?
-      render json: result_failed("invalid parameters")
+      render json: result_failed
       return
     end
 
