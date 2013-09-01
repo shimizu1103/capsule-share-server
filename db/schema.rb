@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20130901100615) do
 
   create_table "friend_requests", force: true do |t|
-    t.integer  "users_id",                                null: false
-    t.integer  "friend_users_id",                         null: false
-    t.string   "status",          limit: 1, default: "1", null: false
+    t.integer  "user_id",                                null: false
+    t.integer  "friend_user_id",                         null: false
+    t.string   "status",         limit: 1, default: "1", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "user_users", force: true do |t|
-    t.integer  "users_id",        null: false
-    t.integer  "friend_users_id", null: false
+    t.integer  "user_id",        null: false
+    t.integer  "friend_user_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
