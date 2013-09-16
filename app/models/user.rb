@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable, :confirmable
 
+  has_many :user_users
+  has_many :friends, through: :user_users
+  has_many :friend_requests_from_me, class_name: "FriendRequest"
+  has_many :friend_requests_to_me, class_name: "FriendRequest", foreign_key: :friend_user_id
+
   before_save :ensure_authentication_token
 
   validates :name, presence: true, length: { maximum: 20 }
