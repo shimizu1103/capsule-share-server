@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20130901100615) do
     t.datetime "updated_at"
   end
 
+  add_index "friend_requests", ["user_id", "friend_user_id"], name: "index_friend_requests_on_user_id_and_friend_user_id", unique: true, using: :btree
+
   create_table "user_users", force: true do |t|
     t.integer  "user_id",        null: false
     t.integer  "friend_user_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_users", ["user_id", "friend_user_id"], name: "index_user_users_on_user_id_and_friend_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   limit: 20,              null: false
