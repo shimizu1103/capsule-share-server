@@ -9,4 +9,28 @@ FactoryGirl.define do
     password_confirmation "1111"
     confirmed_at Time.now
   end
+
+  factory :arakawa, class: User do
+    name "アラカワ"
+    email "arakawa@vyw.jp"
+    password "1111"
+    password_confirmation "1111"
+    confirmed_at Time.now
+  end
+
+  factory :kawasaki, class: User do
+    name "カワサキ"
+    email "y-kawasaki@vyw.jp"
+    password "1111"
+    password_confirmation "1111"
+    confirmed_at Time.now
+  end
+
+  factory :shimizu, class: User do
+    name "シミズ"
+    email "t-shimizu@vyw.jp"
+    password "1111"
+    password_confirmation "1111"
+    confirmed_at Time.now
+  end
 end

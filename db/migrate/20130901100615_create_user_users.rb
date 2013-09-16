@@ -6,5 +6,7 @@ class CreateUserUsers < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :user_users, [:user_id, :friend_user_id], :unique => true
   end
 end
