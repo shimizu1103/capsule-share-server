@@ -46,6 +46,8 @@ end
 
 gem 'devise'
 
+gem 'carrierwave'
+
 gem 'settingslogic'
 
 gem 'factory_girl_rails'

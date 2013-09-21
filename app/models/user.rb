@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many :friends, through: :user_users
   has_many :friend_requests_from_me, class_name: "FriendRequest"
   has_many :friend_requests_to_me, class_name: "FriendRequest", foreign_key: :friend_user_id
+  has_many :upload_files
 
   before_save :ensure_authentication_token
 

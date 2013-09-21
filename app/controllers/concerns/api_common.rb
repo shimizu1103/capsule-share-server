@@ -1,4 +1,8 @@
 module ApiCommon
+  def result_success
+    { result: 0 }
+  end
+
   def result_not_exists
     { result: 1 }
   end
