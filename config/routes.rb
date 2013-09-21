@@ -10,5 +10,7 @@ CapsuleShare::Application.routes.draw do
       post "users/sign_in" => "users/sessions#create"
     end
     post "friends/create", to: "friends#create"
+    post "users/search", to: "users#search"
   end
+    #post "users/search" => "api/users#search"
 end
