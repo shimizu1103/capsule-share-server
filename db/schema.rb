@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130824094825) do
+ActiveRecord::Schema.define(version: 20130921104643) do
+
+  create_table "friend_requests", force: true do |t|
+    t.integer  "user_id",                                null: false
+    t.integer  "friend_user_id",                         null: false
+    t.string   "status",         limit: 1, default: "1", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friend_requests", ["user_id", "friend_user_id"], name: "index_friend_requests_on_user_id_and_friend_user_id", unique: true, using: :btree
+
+  create_table "upload_files", force: true do |t|
+    t.integer  "user_id"
+    t.string   "file_name"
+    t.string   "owned_file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_users", force: true do |t|
+    t.integer  "user_id",        null: false
+    t.integer  "friend_user_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_users", ["user_id", "friend_user_id"], name: "index_user_users_on_user_id_and_friend_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                   limit: 20,              null: false
