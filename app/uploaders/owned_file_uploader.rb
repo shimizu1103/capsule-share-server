@@ -14,7 +14,7 @@ class OwnedFileUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     # "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    "/home/ubuntu/uploads/#{model.user.id}/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "/home/ubuntu/uploads/users/#{model.user.id}/#{model.class.to_s.pluralize.underscore}/#{model.id}/"
   end
 
   def cache_dir
@@ -52,5 +52,15 @@ class OwnedFileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  def filename
+    "#{timestamp}.#{file.extension.downcase}" if original_filename.present?
+  end
 
+  private
+
+  # https://github.com/carrierwaveuploader/carrierwave/wiki/How-to%3A-Use-a-timestamp-in-file-names
+  def timestamp
+    var = :"@#{mounted_as}_timestamp"
+    model.instance_variable_get(var) || model.instance_variable_set(var, Time.current.strftime("%Y%m%d%H%M%S"))
+  end
 end
